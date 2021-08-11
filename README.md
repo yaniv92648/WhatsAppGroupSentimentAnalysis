@@ -1,5 +1,5 @@
 # WhatsAppGroupSentimentAnalysis
-A sentiment analysis based on HeBert (https://github.com/avichaychriqui/HeBERT) of WhatsApp groups!
+A sentiment analysis in Hebrew based on HeBert (https://github.com/avichaychriqui/HeBERT) of WhatsApp groups!
 
 Wanna know how optimistic/pessimistic are your WhatsApp friends?
 
