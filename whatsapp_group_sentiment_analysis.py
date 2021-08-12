@@ -15,14 +15,14 @@ def get_people(total_chat):
   # and the list of his msgs is the value
   people = defaultdict(list)
   for l in total_chat:
-  sen = l.rstrip("\n")
-  if ']' in sen:
-    name_and_msg = sen.split(']')[1]
-    if ':' in name_and_msg:
-      name_and_msg = name_and_msg.strip()
-      name = name_and_msg.split(':')[0].replace(' ', '_')
-      msg = name_and_msg.split(':')[1]
-      people[name].append(msg)
+    sen = l.rstrip("\n")
+    if ']' in sen:
+      name_and_msg = sen.split(']')[1]
+      if ':' in name_and_msg:
+        name_and_msg = name_and_msg.strip()
+        name = name_and_msg.split(':')[0].replace(' ', '_')
+        msg = name_and_msg.split(':')[1]
+        people[name].append(msg)
 
   # Clean noise made by the subject of the group
   for person, msgs in people.copy().items():
@@ -34,8 +34,8 @@ def get_people(total_chat):
 
   # Align everyone's no. of msgs to his no. of msgs so we can put in a dataframe
   for person, msgs in people.items():
-  while len(msgs) > min_msgs:
-    msgs.pop()
+    while len(msgs) > min_msgs:
+      msgs.pop()
 
   return people
 
