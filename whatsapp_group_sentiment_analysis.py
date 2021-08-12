@@ -26,8 +26,8 @@ def get_people(total_chat):
 
   # Clean noise made by the subject of the group
   for person, msgs in people.copy().items():
-  if len(msgs) < 5:
-    people.pop(person)
+    if len(msgs) < 5:
+      people.pop(person)
 
   # Get the no. of msgs of the person with the fewest no. of msgs
   min_msgs = np.min([len(msgs) for person, msgs in people.items()])
