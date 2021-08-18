@@ -1,13 +1,14 @@
 # Imports
 import pandas as pd
 import numpy as np
+import streamlit as st
 from transformers import AutoTokenizer, AutoModel, pipeline
 from collections import defaultdict
 
 
-def get_total_chat(filename):
-  with open(filename, encoding="utf-8") as file:
-    return file.readlines()
+def get_total_chat():
+  file = st.sidebar.file_uploader("Upload your exported WhatsApp group chat!")
+  return [line for line in file]
   
   
 def get_people(total_chat):
@@ -73,8 +74,10 @@ sentiment_analysis = pipeline(
 )
 
 def run():
-  filename = ''
-  total_chat = get_total_chat(filename)
+  
+  st.title('WhatsApp Groups Sentiments Analyzer!')
+  
+  total_chat = get_total_chat()
   people = get_people(total_chat)
   pd.DataFrame(data=people)
   
@@ -96,3 +99,5 @@ def run():
   for person in people_scores:
     print(f'{person[0]} positivity score: {person[1]}')
   
+
+run()
