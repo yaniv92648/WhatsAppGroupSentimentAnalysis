@@ -100,4 +100,4 @@ def run():
 #     st.write((f'{person[0]} positivity score: {person[1]}'))
   
 
-# run()
+run()
