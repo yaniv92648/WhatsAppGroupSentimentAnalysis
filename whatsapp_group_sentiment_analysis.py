@@ -7,8 +7,8 @@ from collections import defaultdict
 
 
 def get_total_chat():
-  file = st.sidebar.file_uploader("Upload your exported WhatsApp group chat!")
-  return [line for line in file]
+  file = st.file_uploader('').readlines()
+  return [line.decode("utf-8") for line in file]
   
   
 def get_people(total_chat):
