@@ -62,8 +62,8 @@ def get_neutrality(string):
   return state['score']
 
 
-tokenizer = AutoTokenizer.from_pretrained("avichr/heBERT_sentiment_analysis")
-model = AutoModel.from_pretrained("avichr/heBERT_sentiment_analysis")
+tokenizer = AutoTokenizer.from_pretrained("avichr/heBERT_sentiment_analysis", force_download=True)
+model = AutoModel.from_pretrained("avichr/heBERT_sentiment_analysis", force_download=True)
 
 sentiment_analysis = pipeline(
     "sentiment-analysis",
