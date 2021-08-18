@@ -77,8 +77,8 @@ def run():
   
   st.title('WhatsApp Groups Sentiments Analyzer!')
   
-  total_chat = get_total_chat()
-  st.write(total_chat)
+#   total_chat = get_total_chat()
+  st.write('AA BB CC')
 #   people = get_people(total_chat)
 #   pd.DataFrame(data=people)
   
