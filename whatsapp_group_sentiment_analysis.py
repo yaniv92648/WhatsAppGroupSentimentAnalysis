@@ -1,3 +1,5 @@
+!pip install transformers
+
 # Imports
 import pandas as pd
 import numpy as np
@@ -97,7 +99,7 @@ def run():
     people_scores.append((name, score))
   people_scores.sort(reverse=True, key=lambda x:x[1])
   for person in people_scores:
-    print(f'{person[0]} positivity score: {person[1]}')
+    st.write((f'{person[0]} positivity score: {person[1]}'))
   
 
 run()
