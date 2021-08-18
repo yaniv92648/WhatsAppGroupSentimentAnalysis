@@ -7,8 +7,8 @@ from collections import defaultdict
 
 
 def get_total_chat():
-  file = st.file_uploader('').readlines()
-  return [line.decode("utf-8") for line in file]
+  lines = st.file_uploader('').readlines()
+  return [line.decode("utf-8") for line in lines]
   
   
 def get_people(total_chat):
