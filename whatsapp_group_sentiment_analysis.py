@@ -1,4 +1,3 @@
-# Imports
 import pandas as pd
 import numpy as np
 import streamlit as st
@@ -6,14 +5,14 @@ from transformers import AutoTokenizer, AutoModel, pipeline
 from collections import defaultdict
 
 
+# Read uploaded file from user
 def get_total_chat():
   lines = st.file_uploader('').readlines()
   return [line.decode("utf-8") for line in lines]
   
-  
+
+# Create a people dictionary of lists where every person's name is the key and the list of his msgs is the value
 def get_people(total_chat):
-  # Create a people dictionary of lists where every person's name is the key 
-  # and the list of his msgs is the value
   people = defaultdict(list)
   for l in total_chat:
     sen = l.rstrip("\n")
