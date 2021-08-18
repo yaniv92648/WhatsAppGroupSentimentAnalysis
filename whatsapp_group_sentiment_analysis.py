@@ -1,5 +1,3 @@
-!pip install transformers
-
 # Imports
 import pandas as pd
 import numpy as np
@@ -80,26 +78,27 @@ def run():
   st.title('WhatsApp Groups Sentiments Analyzer!')
   
   total_chat = get_total_chat()
-  people = get_people(total_chat)
-  pd.DataFrame(data=people)
+  st.write(total_chat)
+#   people = get_people(total_chat)
+#   pd.DataFrame(data=people)
   
-  for person in df.columns:
-    df[f'{person}_positivity_index'] = df[person].apply(lambda r: get_positivity(r))
-    df[f'{person}_negativity_index'] = df[person].apply(lambda r: get_negativity(r))
-    df[f'{person}_neutrality_index'] = df[person].apply(lambda r: get_neutrality(r))
+#   for person in df.columns:
+#     df[f'{person}_positivity_index'] = df[person].apply(lambda r: get_positivity(r))
+#     df[f'{person}_negativity_index'] = df[person].apply(lambda r: get_negativity(r))
+#     df[f'{person}_neutrality_index'] = df[person].apply(lambda r: get_neutrality(r))
     
-  for person in people.keys():
-    df[f'{person}_positivity_score'] = ((df[f'{person}_positivity_index'] + 
-                                           df[f'{person}_negativity_index']) / 2 + 
-                                          df[f'{person}_neutrality_index']) / 2
+#   for person in people.keys():
+#     df[f'{person}_positivity_score'] = ((df[f'{person}_positivity_index'] + 
+#                                            df[f'{person}_negativity_index']) / 2 + 
+#                                           df[f'{person}_neutrality_index']) / 2
 
-  people_scores = []
-  for name in people.keys():
-    score = round(df[f'{name}_positivity_score'].mean(), 5)
-    people_scores.append((name, score))
-  people_scores.sort(reverse=True, key=lambda x:x[1])
-  for person in people_scores:
-    st.write((f'{person[0]} positivity score: {person[1]}'))
+#   people_scores = []
+#   for name in people.keys():
+#     score = round(df[f'{name}_positivity_score'].mean(), 5)
+#     people_scores.append((name, score))
+#   people_scores.sort(reverse=True, key=lambda x:x[1])
+#   for person in people_scores:
+#     st.write((f'{person[0]} positivity score: {person[1]}'))
   
 
 run()
