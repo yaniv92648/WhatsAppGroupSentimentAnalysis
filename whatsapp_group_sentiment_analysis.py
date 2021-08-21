@@ -77,9 +77,9 @@ def run():
   st.title('WhatsApp Groups Sentiments Analyzer!')
   
   total_chat = get_total_chat()
-  st.write(total_chat)
-#   people = get_people(total_chat)
-#   pd.DataFrame(data=people)
+  people = get_people(total_chat)
+  df = pd.DataFrame(data=people)
+  st.write(df)
   
 #   for person in df.columns:
 #     df[f'{person}_positivity_index'] = df[person].apply(lambda r: get_positivity(r))
