@@ -79,7 +79,7 @@ def run():
   total_chat = get_total_chat()
   people = get_people(total_chat)
   df = pd.DataFrame(data=people)
-  st.write(df)
+  st.write(people)
   
 #   for person in df.columns:
 #     df[f'{person}_positivity_index'] = df[person].apply(lambda r: get_positivity(r))
