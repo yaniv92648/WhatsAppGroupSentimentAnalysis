@@ -7,7 +7,10 @@ from transformers import AutoTokenizer, AutoModel, pipeline
 
 # Read uploaded file from user
 def get_total_chat():
-  lines = st.file_uploader('').readlines()
+  file = st.file_uploader('')
+  if not file:
+    return None
+  lines = file.readlines()
   return [line.decode("utf-8") for line in lines]
   
 
@@ -77,6 +80,8 @@ def run():
   st.title('WhatsApp Groups Sentiments Analyzer!')
   
   total_chat = get_total_chat()
+  if not total_chat:
+    return
   people = get_people(total_chat)
   df = pd.DataFrame(data=people)
   
