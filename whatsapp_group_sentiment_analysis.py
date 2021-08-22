@@ -19,14 +19,17 @@ def get_people(total_chat):
   people = defaultdict(list)
   for l in total_chat:
     sen = l.rstrip("\n")
-    if ']' in sen:
-      name_and_msg = sen.split(']')[1]
-      if ':' in name_and_msg:
+    iphone_whatsapp_separator = ']'
+    android_whatsapp_separator = ' - '
+    if iphone_whatsapp_separator in sen:
+      name_and_msg = sen.split(iphone_whatsapp_separator)[1]
+    elif android_whatsapp_separator in sen:
+      name_and_msg = sen.split(android_whatsapp_separator)[1]
+    if ':' in name_and_msg:
         name_and_msg = name_and_msg.strip()
         name = name_and_msg.split(':')[0].replace(' ', '_')
         msg = name_and_msg.split(':')[1]
         people[name].append(msg)
-
   # Clean noise made by the subject of the group
   for person, msgs in people.copy().items():
     if len(msgs) < 5:
