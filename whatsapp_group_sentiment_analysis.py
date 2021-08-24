@@ -7,7 +7,7 @@ from transformers import AutoTokenizer, AutoModel, pipeline
 
 # Read uploaded file from user
 def get_total_chat():
-  file = st.file_uploader('')
+  file = st.file_uploader('chat.txt')
   if not file:
     return None
   lines = file.readlines()
